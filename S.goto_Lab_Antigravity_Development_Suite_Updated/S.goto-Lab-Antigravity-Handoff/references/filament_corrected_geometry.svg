@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" role="img" aria-labelledby="title desc">
+  <title id="title">S.goto Lab Filament concept reference</title>
+  <desc id="desc">Five fine incoming neutral paths converge into one point; exactly one vermilion line continues to the right. Concept geometry only, not approved logo artwork.</desc>
+  <rect width="1000" height="360" fill="#171819"/>
+  <g fill="none" stroke-linecap="round" stroke-width="1.9">
+    <path d="M25 25 C270 25 315 180 650 180" stroke="#8f8a82"/>
+    <path d="M25 105 C280 105 335 180 650 180" stroke="#b9b3a9"/>
+    <path d="M25 180 H650" stroke="#d6d0c7"/>
+    <path d="M25 255 C280 255 335 180 650 180" stroke="#b9b3a9"/>
+    <path d="M25 335 C270 335 315 180 650 180" stroke="#8f8a82"/>
+    <path d="M650 180 H975" stroke="#B43F30" stroke-width="3.8"/>
+  </g>
+  <circle cx="650" cy="180" r="6.5" fill="#B43F30"/>
+</svg>

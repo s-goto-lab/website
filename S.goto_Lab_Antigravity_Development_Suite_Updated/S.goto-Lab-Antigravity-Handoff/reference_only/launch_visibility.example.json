@@ -1,0 +1,21 @@
+{
+  "purpose": "REFERENCE ONLY: do not install as deployed configuration until reviewed",
+  "siteName": "S.goto Lab",
+  "temporaryHost": "https://lab.shagoto.me",
+  "publicInitialRoutes": [
+    "/",
+    "/capabilities",
+    "/about",
+    "/contact"
+  ],
+  "workPublic": false,
+  "serialNowPublic": false,
+  "contactDestinationVerified": false,
+  "founderAttributionApproved": false,
+  "productionDeployAuthorized": false,
+  "founderVisibilityPreference": "minimal_named_after_exact_wording_approval",
+  "contactMechanism": "mailto_verified_email",
+  "publicContactEmail": null,
+  "selectedCommissionedInquiriesAllowed": true,
+  "commissionedProjectAcceptanceGuaranteed": false
+}

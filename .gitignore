@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build output
+dist/
+.astro/
+
+# Environment variables
+.env
+.env.production
+.env.local
+.env.*.local
+
+# Test & coverage
+coverage/
+playwright-report/
+test-results/
+
+# Editor & OS files
+.DS_Store
+Thumbs.db
+*.log
+.vscode/*
+!.vscode/extensions.json
+.idea/

@@ -1,0 +1,91 @@
+{
+  "title": "S.goto Lab Antigravity website handoff",
+  "edition": "2026-10-27-revised-launch-preferences",
+  "artifacts": [
+    {
+      "path": "01_APPROVED_DECISIONS.md",
+      "bytes": 5402,
+      "sha256": "dee43511bd54276eb0afcd785d15308cfc7106f78212332c5f9d3e19c9e43f7b"
+    },
+    {
+      "path": "02_BRAND_DESIGN.md",
+      "bytes": 5164,
+      "sha256": "e4a05f5def75bcdb9eea83a8be7c6e85cf966354087fd11742107086a3cda5bf"
+    },
+    {
+      "path": "03_PAGES_CONTENT.md",
+      "bytes": 6445,
+      "sha256": "d9d55f911a9fb7d58be81e1b534299b040445a1e2955fb3401fb05afe8fd47a1"
+    },
+    {
+      "path": "04_TECHNICAL_ARCHITECTURE.md",
+      "bytes": 4749,
+      "sha256": "9660353bf8328b75d7c5afe03d4563a405aada7e1a086c883e2fe78210a735ae"
+    },
+    {
+      "path": "05_CHECKPOINTS_AND_PROMPTS.md",
+      "bytes": 5395,
+      "sha256": "789d5b15db566d7ebeb85d666df22c4547c1d788b0b1c40603decba482f7ebba"
+    },
+    {
+      "path": "06_TESTING_AND_ACCEPTANCE.md",
+      "bytes": 4359,
+      "sha256": "8dc7981ed7638e3b113cddfc72ba5b54add51c3d9c80ee46991c3068a475d7e6"
+    },
+    {
+      "path": "07_OPERATIONS_AND_RELEASE.md",
+      "bytes": 4283,
+      "sha256": "22af7188c6e6f722fa5a624993ddd19deed33a6de19e604caf3e0f0144a78c82"
+    },
+    {
+      "path": "08_FOUNDER_DECISIONS.md",
+      "bytes": 2817,
+      "sha256": "c9092255b10485817db5f580d0cfa45b3d222a409b9e4ae8464b455b0cfe1904"
+    },
+    {
+      "path": "09_REFERENCES.md",
+      "bytes": 2038,
+      "sha256": "16d152aa79cc6c4cb06a67d8e4a8d0a9696088bbab6f679c80b50f51f28fdd5f"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 4133,
+      "sha256": "f11bd5c0957af7a777a260ee6efb5e308521ead24665096165a186cc2d597eb8"
+    },
+    {
+      "path": "ANTIGRAVITY_KICKOFF.txt",
+      "bytes": 2718,
+      "sha256": "1db3b31aba30639811451a3320a9079222eaa55892f3e325d3db4bcff985f7af"
+    },
+    {
+      "path": "START_HERE.md",
+      "bytes": 4745,
+      "sha256": "5306d36d733867a731777a1d6e5bea1d243602e8807061b4bb1ccaa234f1b9c0"
+    },
+    {
+      "path": "content/PROPOSED_PUBLIC_COPY.md",
+      "bytes": 4995,
+      "sha256": "5c7fa4865944c378ef60768a6778676daf8fe8eabaf24002367f09c3e4d0357b"
+    },
+    {
+      "path": "reference_only/launch_visibility.example.json",
+      "bytes": 679,
+      "sha256": "2a9566af2e94c067507a7ed0512c3c62ad4035876c2dd341458c1b4998a541ff"
+    },
+    {
+      "path": "references/filament_corrected_geometry.svg",
+      "bytes": 906,
+      "sha256": "b4b1ced7bf11469070a6a3a6c6189d50725c6fb9634f3137978512f5b53b183a"
+    },
+    {
+      "path": "references/filament_reference_notes.md",
+      "bytes": 1366,
+      "sha256": "c81faaf26b383689afba2b72e966308e82c157b258c6a92dbf3f875a0d6ffde8"
+    },
+    {
+      "path": "references/user_filament_sketch.png",
+      "bytes": 26314,
+      "sha256": "497340b3018052ca04318d31841ce989030ee6b9cbc0090e1dd8683949a8899b"
+    }
+  ]
+}
