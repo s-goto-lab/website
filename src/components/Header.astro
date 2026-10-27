@@ -57,6 +57,67 @@ function isActive(href: string) {
     </button>
   </div>
 
+  <!-- Progressive Enhancement: No-JS Mobile Navigation Fallback -->
+  <noscript>
+    <style>
+      .mobile-toggle {
+        display: none !important;
+      }
+      .no-js-nav {
+        display: block;
+        width: 100%;
+        border-top: 1px solid var(--border-dark);
+        background-color: var(--color-ink);
+        padding: var(--space-3) 0;
+      }
+      .no-js-nav-list {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-2) var(--space-4);
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .no-js-nav-link {
+        font-size: var(--font-size-sm);
+        font-weight: 500;
+        color: var(--text-dark-secondary);
+        text-decoration: none;
+        padding: var(--space-1) var(--space-2);
+        border-radius: 4px;
+      }
+      .no-js-nav-link:hover,
+      .no-js-nav-link--active {
+        color: var(--text-dark-primary);
+        background-color: rgba(244, 241, 233, 0.08);
+      }
+      @media (min-width: 768px) {
+        .no-js-nav {
+          display: none !important;
+        }
+      }
+    </style>
+    <nav class="no-js-nav" aria-label="Fallback Navigation">
+      <div class="container">
+        <ul class="no-js-nav-list">
+          {navItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class={`no-js-nav-link ${isActive(item.href) ? "no-js-nav-link--active" : ""}`}
+                aria-current={isActive(item.href) ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
+  </noscript>
+
   <!-- Mobile Navigation Drawer -->
   <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation" hidden>
     <div class="container mobile-nav-container">
@@ -280,24 +341,51 @@ function isActive(href: string) {
   const mobileNav = document.getElementById("mobile-nav");
 
   if (toggle && mobileNav) {
+    const navLinks = mobileNav.querySelectorAll("a");
+
+    function closeMenu() {
+      if (!toggle || !mobileNav) return;
+      toggle.setAttribute("aria-expanded", "false");
+      mobileNav.setAttribute("hidden", "");
+    }
+
+    function openMenu() {
+      if (!toggle || !mobileNav) return;
+      toggle.setAttribute("aria-expanded", "true");
+      mobileNav.removeAttribute("hidden");
+      if (navLinks.length > 0) {
+        (navLinks[0] as HTMLElement).focus();
+      }
+    }
+
     toggle.addEventListener("click", () => {
       const isExpanded = toggle.getAttribute("aria-expanded") === "true";
-      const nextState = !isExpanded;
-      
-      toggle.setAttribute("aria-expanded", String(nextState));
-      if (nextState) {
-        mobileNav.removeAttribute("hidden");
+      if (isExpanded) {
+        closeMenu();
       } else {
-        mobileNav.setAttribute("hidden", "");
+        openMenu();
       }
     });
 
-    // Close on Escape key
+    // Close when a link inside mobile nav is clicked
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        closeMenu();
+      });
+    });
+
+    // Close on Escape key and return focus to toggle
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
-        toggle.setAttribute("aria-expanded", "false");
-        mobileNav.setAttribute("hidden", "");
+        closeMenu();
         toggle.focus();
+      }
+    });
+
+    // Reset state on viewport resize past mobile breakpoint
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 768 && toggle.getAttribute("aria-expanded") === "true") {
+        closeMenu();
       }
     });
   }
