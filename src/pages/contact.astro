@@ -1,10 +1,25 @@
 ---
 // src/pages/contact.astro
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { INQUIRY_CATEGORIES as categories } from "../utils/contact";
+import {
+  INQUIRY_CATEGORIES as categories,
+  getPublicContactEmail,
+  generateMailtoUri,
+} from "../utils/contact";
 
 const pageTitle = "Contact — S.goto Lab";
 const pageDescription = "Initiate a conversation with S.goto Lab regarding operational friction, selected commissioned solutions, or general inquiries.";
+
+const publicEmail = getPublicContactEmail();
+const isConfigured = Boolean(publicEmail);
+const initialCategory = categories[0];
+const initialMailto = isConfigured
+  ? generateMailtoUri({
+      recipient: publicEmail,
+      subject: initialCategory.subjectPrefix,
+      body: initialCategory.bodyPlaceholder,
+    })
+  : null;
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription} surfaceTheme="surface-paper">
@@ -53,7 +68,7 @@ const pageDescription = "Initiate a conversation with S.goto Lab regarding opera
 
           <div class="inquiry-preview-card">
             <div class="preview-header">
-              <span class="preview-tag font-mono text-muted">Preview Dispatch Format</span>
+              <span class="preview-tag font-mono text-muted">Dispatch Format</span>
               <span class="delivery-badge font-mono">Delivery Method: Verified mailto:</span>
             </div>
 
@@ -61,34 +76,50 @@ const pageDescription = "Initiate a conversation with S.goto Lab regarding opera
               <div class="preview-field">
                 <span class="field-label font-mono">Target Route:</span>
                 <span class="field-value font-mono" id="preview-destination">
-                  [Public Address Pending Founder Verification]
+                  {isConfigured ? publicEmail : "[Public Routing Pending Activation]"}
                 </span>
               </div>
               <div class="preview-field">
                 <span class="field-label font-mono">Prefilled Subject:</span>
                 <span class="field-value" id="preview-subject">
-                  [S.goto Lab Inquiry: Problem Evaluation]
+                  {initialCategory.subjectPrefix}
                 </span>
               </div>
             </div>
 
-            <!-- Inactive/Safe Local Preview Notice -->
+            <!-- Pre-Release / Production Notice -->
             <div class="preview-notice">
               <p class="notice-text font-mono">
-                <strong>Local Preview State:</strong> Contact delivery uses verified <code>mailto:</code> links. The public mailbox address is intentionally not configured in local development pending explicit founder supply and verification. Active client links will be enabled at the release gate.
+                {isConfigured ? (
+                  <><strong>Direct Mail Dispatch:</strong> Selecting an inquiry category prepares a pre-filled message in your local email client. S.goto Lab does not collect credentials or store message submissions in an external database.</>
+                ) : (
+                  <><strong>Pre-Release Status:</strong> The studio's public inquiry destination is currently being routed. Direct mail client dispatch will become active upon completion of domain mail provisioning.</>
+                )}
               </p>
             </div>
 
             <div class="action-row">
-              <button
-                type="button"
-                class="btn btn-secondary-light btn-disabled"
-                disabled
-                aria-disabled="true"
-                id="contact-launch-btn"
-              >
-                Send via Email Client (Disabled in Preview)
-              </button>
+              {isConfigured ? (
+                <a
+                  href={initialMailto}
+                  class="btn btn-primary"
+                  id="contact-launch-btn"
+                  data-email={publicEmail}
+                >
+                  Launch Email Client
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  class="btn btn-secondary-light btn-disabled"
+                  disabled
+                  aria-disabled="true"
+                  id="contact-launch-btn"
+                  title="Direct mail routing will become active upon release"
+                >
+                  Inquiry Channel Pending Activation
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -350,15 +381,30 @@ const pageDescription = "Initiate a conversation with S.goto Lab regarding opera
 </style>
 
 <script>
-  // Dynamic category update for preview
+  // Dynamic category update for preview and mailto generation
   const inputs = document.querySelectorAll<HTMLInputElement>('input[name="inquiry-category"]');
   const subjectEl = document.getElementById("preview-subject");
+  const launchBtn = document.getElementById("contact-launch-btn") as HTMLAnchorElement | HTMLButtonElement | null;
 
   inputs.forEach((input) => {
     input.addEventListener("change", () => {
       if (input.checked && subjectEl) {
         const subject = input.getAttribute("data-subject") || "";
+        const body = input.getAttribute("data-body") || "";
         subjectEl.textContent = subject;
+
+        // If email is configured, dynamically update the anchor href
+        if (launchBtn && launchBtn.tagName === "A" && launchBtn.hasAttribute("data-email")) {
+          const email = launchBtn.getAttribute("data-email");
+          if (email) {
+            const encodedSubject = encodeURIComponent(subject.trim());
+            const encodedBody = encodeURIComponent(body.trim());
+            launchBtn.setAttribute(
+              "href",
+              `mailto:${email}?subject=${encodedSubject}&body=${encodedBody}`
+            );
+          }
+        }
       }
     });
   });

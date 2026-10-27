@@ -38,6 +38,34 @@ export const INQUIRY_CATEGORIES: InquiryCategory[] = [
 ];
 
 /**
+ * Validates whether an email string conforms to standard format.
+ */
+export function validateEmail(email: string | null | undefined): boolean {
+  if (!email || typeof email !== "string") return false;
+  const trimmed = email.trim();
+  if (trimmed.length < 5 || trimmed.length > 254) return false;
+  // Standard RFC 5322 compatible email format regex
+  const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
+  return emailRegex.test(trimmed);
+}
+
+/**
+ * Retrieves the validated public contact email from environment variables,
+ * or returns null if unconfigured or malformed.
+ */
+export function getPublicContactEmail(): string | null {
+  const envEmail = (typeof process !== "undefined" && process.env?.PUBLIC_CONTACT_EMAIL)
+    || (typeof import.meta !== "undefined" && (import.meta as any).env?.PUBLIC_CONTACT_EMAIL);
+
+  if (!envEmail || typeof envEmail !== "string") {
+    return null;
+  }
+
+  const trimmed = envEmail.trim();
+  return validateEmail(trimmed) ? trimmed : null;
+}
+
+/**
  * Returns the InquiryCategory matching the provided ID, defaulting to the problem category.
  */
 export function getCategoryById(id: string): InquiryCategory {
@@ -47,7 +75,7 @@ export function getCategoryById(id: string): InquiryCategory {
 
 /**
  * Formats a valid mailto: URL with percent-encoded query parameters.
- * If recipient is empty, null, or undefined, returns null to prevent generating unsafe links.
+ * If recipient is missing, invalid, or empty, returns null to prevent generating unsafe links.
  */
 export function generateMailtoUri(options: {
   recipient?: string | null;
@@ -56,11 +84,11 @@ export function generateMailtoUri(options: {
 }): string | null {
   const { recipient, subject, body } = options;
 
-  if (!recipient || recipient.trim() === "") {
+  if (!validateEmail(recipient)) {
     return null;
   }
 
-  const trimmedRecipient = recipient.trim();
+  const trimmedRecipient = (recipient as string).trim();
   const encodedSubject = encodeURIComponent(subject.trim());
   
   if (body && body.trim() !== "") {
