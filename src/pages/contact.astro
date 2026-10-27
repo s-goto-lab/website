@@ -1,36 +1,10 @@
 ---
 // src/pages/contact.astro
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { INQUIRY_CATEGORIES as categories } from "../utils/contact";
 
 const pageTitle = "Contact — S.goto Lab";
 const pageDescription = "Initiate a conversation with S.goto Lab regarding operational friction, selected commissioned solutions, or general inquiries.";
-
-const categories = [
-  {
-    id: "problem",
-    label: "Discuss a Problem / Commissioned Solution",
-    badge: "Selected Inquiries",
-    description: "Describe an operational bottleneck, repetitive friction, or opportunity for a purpose-built system.",
-    subjectPrefix: "[S.goto Lab Inquiry: Problem Evaluation]",
-    bodyPlaceholder: "Brief description of the problem, who it impacts, and current workarounds...",
-  },
-  {
-    id: "collaboration",
-    label: "Collaboration & Partnership",
-    badge: "Partnership",
-    description: "Explore research, co-creation, or technical alignment with S.goto Lab initiatives.",
-    subjectPrefix: "[S.goto Lab Inquiry: Collaboration]",
-    bodyPlaceholder: "Overview of your initiative, team, and proposed area of collaboration...",
-  },
-  {
-    id: "general",
-    label: "General Inquiry",
-    badge: "General",
-    description: "Questions regarding our studio philosophy, published work, or general orientation.",
-    subjectPrefix: "[S.goto Lab Inquiry: General]",
-    bodyPlaceholder: "Your question or comment for the studio...",
-  },
-];
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription} surfaceTheme="surface-paper">
