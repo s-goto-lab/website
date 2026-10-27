@@ -1,25 +1,35 @@
 # S.goto Lab Official Website — Checkpoint Status Record
 
 ```text
-Checkpoint: CP0 — VERIFIED_COMPLETE
-Last verified commit: none (git repository initialization scheduled for Checkpoint 1)
-Working tree: Clean (Planning documentation created; reference handoff untouched; zero source/dependencies initialized)
+Checkpoint: CP1 — VERIFIED_COMPLETE
+Last verified commit: 45f1114 (feat(scaffold): initialize independent Astro static foundation with TypeScript, CSS tokens, and page skeletons)
+Working tree: Clean (Status record updated)
 Completed:
-  - Inspected workspace path `/home/s_goto/Documents/s-goto-lab/s.goto_lab-site` and confirmed total isolation from `lab-ops`, `phantom`, and `shagoto.me`.
-  - Verified local toolchain: Node.js v22.23.1 (LTS), npm 10.9.8, git 2.51.0 (/usr/bin/git). Confirmed git repository not yet initialized.
-  - Read and verified all handoff files in prescribed reading order against MANIFEST.json.
-  - Analyzed and synthesized WEB-001–014 strategic decisions, Ink/Paper/Vermilion palette, Filament geometric invariants, and identity-first content boundaries.
-  - Resolved discrepancies: Vermilion accent approved over legacy "blue" notes; single resolved outgoing line approved over sketch branches; verified mailto: contact without fake email; suppression of /work route and unpublished products.
-  - Authored Master Implementation Plan (IMPLEMENTATION_PLAN.md) defining architecture, component breakdown, testing matrix, and phased checkpoint recovery.
+  - Initialized local Git repository on branch `main` and verified user configuration.
+  - Configured `package.json` with pinned dependencies (Astro v5.18.2, TypeScript v5.7.3, @astrojs/check v0.9.12, @playwright/test v1.50.1, Vitest v3.0.5, @types/node).
+  - Generated deterministic `package-lock.json` via npm install (0 vulnerabilities affecting runtime, strict clean lockfile).
+  - Established CSS design token system (`tokens.css`, `reset.css`, `global.css`) embedding the approved Ink, Paper & Vermilion palette (`#171819`, `#F4F1E9`, `#B43F30`), fluid typography scales via clamp(), and surface primitives.
+  - Implemented semantic document shell components (`BaseLayout.astro`, `SkipLink.astro`, `Header.astro`, `Footer.astro`) with accessible keyboard navigation, responsive mobile drawer toggle, and SEO metadata.
+  - Scaffolded initial pages adhering to approved visitor narrative: `/` (Home), `/capabilities` (Capabilities), `/about` (About), `/contact` (Guided Conversation), and `/404` (Error).
+  - Strictly enforced WEB-007: verified `/work` route is absent and returns HTTP 404.
+  - Audited `dist/` static output for leak boundaries: verified zero occurrences of unapproved products (SerialNow / Phantom), personal emails, or placeholder emails.
 Tests run:
-  - `pwd && git status 2>&1; node -v 2>&1; npm -v 2>&1; which git node npm pnpm yarn bun 2>&1` -> Verified toolchain and git uninitialized status.
-  - `ls -la ..` -> Verified isolation from sibling `lab-ops`.
-  - Manifest verification -> Confirmed 13 files and 3 directories matching handoff specification.
-Visual evidence: N/A (Read-only planning checkpoint; visual evidence begins in Checkpoint 2)
-Remaining tasks: Checkpoint 1 (Initialize local git, scaffold Astro static app with TypeScript, establish CSS tokens, build page skeletons, verify dev server).
+  - `npm test` -> Vitest v3.2.7: 1 test file passed, 2/2 tests passed (route boundaries & brand palette verification).
+  - `npm run check` -> Astro check v5.18.2: 15 files checked, 0 errors, 0 warnings, 0 hints.
+  - `npm run build` -> Astro build: static output mode, 5 pages built in 1.07s into `dist/` (/index.html, /about/index.html, /capabilities/index.html, /contact/index.html, /404.html).
+  - `grep -ri "serialnow\|phantom\|shagoto@\|hello@" dist/` -> Clean (0 occurrences).
+  - Local preview server smoke test via curl:
+      - `GET /` -> HTTP 200
+      - `GET /capabilities` -> HTTP 200
+      - `GET /about` -> HTTP 200
+      - `GET /contact` -> HTTP 200
+      - `GET /404` -> HTTP 200
+      - `GET /work` -> HTTP 404
+Visual evidence: Local preview verified via curl; full visual browser screenshots scheduled for Checkpoint 2 visual gate.
+Remaining tasks: Checkpoint 2 (Editorial content refinement, responsive visual layouts, 2–3 optical wordmark/font candidates, static Filament SVG implementation, founder visual review).
 Risks / founder decisions:
-  - Public contact email address not yet supplied (non-blocker for local engineering; hard release blocker for CP5).
-  - Public founder attribution exact wording pending review (institutional copy used until approved).
-  - Production release and Cloudflare credentials require separate explicit founder authorization.
-STOP condition: Checkpoint 0 complete. STOPPED. Awaiting explicit founder `PROCEED` to begin Checkpoint 1.
+  - Public contact email address not yet supplied (safe inactive preview in place; release blocker for CP5).
+  - Public founder attribution exact copy pending founder sign-off (institutional copy in place).
+  - Founder visual sign-off required at Checkpoint 2 gate for wordmark letterforms and typography.
+STOP condition: Checkpoint 1 complete. STOPPED. Awaiting explicit founder `PROCEED` to begin Checkpoint 2.
 ```
