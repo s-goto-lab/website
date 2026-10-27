@@ -1,16 +1,24 @@
 ---
 // src/components/Filament.astro
-// Signature Graphic: The Filament (WEB-004 Invariant Geometry)
+// Signature Graphic: The Filament (WEB-004 Invariant Geometry & WEB-009 Directed Cinematic Motion)
 // Invariants: 5 incoming strands -> 1 convergence node -> 1 outgoing vermilion line.
 interface Props {
   class?: string;
   maxWidth?: string;
+  animated?: boolean;
 }
 
-const { class: className = "", maxWidth = "960px" } = Astro.props;
+const {
+  class: className = "",
+  maxWidth = "960px",
+  animated = true,
+} = Astro.props;
 ---
 
-<div class={`filament-container ${className}`} style={`--max-width: ${maxWidth};`}>
+<div
+  class={`filament-container ${animated ? "filament-animated" : "filament-static"} ${className}`}
+  style={`--max-width: ${maxWidth};`}
+>
   <svg
     class="filament-svg"
     viewBox="0 0 1000 360"
@@ -28,8 +36,8 @@ const { class: className = "", maxWidth = "960px" } = Astro.props;
     <circle
       cx="650"
       cy="180"
-      r="22"
-      fill="rgba(180, 63, 48, 0.12)"
+      r="24"
+      fill="rgba(180, 63, 48, 0.14)"
       class="filament-glow"
     />
 
@@ -39,37 +47,43 @@ const { class: className = "", maxWidth = "960px" } = Astro.props;
         d="M 25,25 C 270,25 315,180 650,180"
         stroke="#8F8A82"
         stroke-width="1.8"
+        pathLength="1000"
         class="strand strand--top-outer"
       />
       <path
         d="M 25,105 C 280,105 335,180 650,180"
         stroke="#B9B3A9"
         stroke-width="1.8"
+        pathLength="1000"
         class="strand strand--top-inner"
       />
       <path
         d="M 25,180 H 650"
         stroke="#D6D0C7"
         stroke-width="2.0"
+        pathLength="1000"
         class="strand strand--center"
       />
       <path
         d="M 25,255 C 280,255 335,180 650,180"
         stroke="#B9B3A9"
         stroke-width="1.8"
+        pathLength="1000"
         class="strand strand--bottom-inner"
       />
       <path
         d="M 25,335 C 270,335 315,180 650,180"
         stroke="#8F8A82"
         stroke-width="1.8"
+        pathLength="1000"
         class="strand strand--bottom-outer"
       />
-      <!-- Exactly ONE continuing vermilion line -->
+      <!-- Exactly ONE continuing resolved vermilion line -->
       <path
         d="M 650,180 H 975"
         stroke="#B43F30"
         stroke-width="3.8"
+        pathLength="1000"
         class="strand--resolved"
       />
     </g>
@@ -111,6 +125,125 @@ const { class: className = "", maxWidth = "960px" } = Astro.props;
   }
 
   .node--resolved {
-    filter: drop-shadow(0 0 4px rgba(180, 63, 48, 0.4));
+    filter: drop-shadow(0 0 6px rgba(180, 63, 48, 0.45));
+    transform-origin: 650px 180px;
+  }
+
+  .filament-glow {
+    transform-origin: 650px 180px;
+  }
+
+  /* ==========================================================================
+     WEB-009 Directed Cinematic Motion: Staged Reveal Animations
+     Phase 1: Incoming fine strands draw left-to-right (0.1s - 1.3s)
+     Phase 2: Convergence node pulse & ambient glow (1.2s - 1.6s)
+     Phase 3: Single resolved vermilion strand extends onward (1.45s - 2.3s)
+     ========================================================================== */
+
+  .filament-animated .strand {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawStrand 1.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .filament-animated .strand--center {
+    animation-delay: 0.1s;
+  }
+
+  .filament-animated .strand--top-inner,
+  .filament-animated .strand--bottom-inner {
+    animation-delay: 0.22s;
+  }
+
+  .filament-animated .strand--top-outer,
+  .filament-animated .strand--bottom-outer {
+    animation-delay: 0.35s;
+  }
+
+  .filament-animated .node--resolved {
+    opacity: 0;
+    transform: scale(0.2);
+    animation: activateNode 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) 1.25s forwards;
+  }
+
+  .filament-animated .filament-glow {
+    opacity: 0;
+    transform: scale(0.5);
+    animation: activateGlow 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.3s forwards;
+  }
+
+  .filament-animated .strand--resolved {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: resolveLine 0.85s cubic-bezier(0.16, 1, 0.3, 1) 1.45s forwards;
+  }
+
+  /* Keyframe Definitions */
+  @keyframes drawStrand {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes activateNode {
+    0% {
+      opacity: 0;
+      transform: scale(0.2);
+    }
+    70% {
+      opacity: 1;
+      transform: scale(1.3);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes activateGlow {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes resolveLine {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* ==========================================================================
+     Static Fallback (No animation, immediate rendering)
+     ========================================================================== */
+  .filament-static .strand,
+  .filament-static .strand--resolved {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+  }
+
+  .filament-static .node--resolved,
+  .filament-static .filament-glow {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ==========================================================================
+     Accessibility: Strict Reduced Motion Override
+     ========================================================================== */
+  @media (prefers-reduced-motion: reduce) {
+    .filament-animated .strand,
+    .filament-animated .strand--resolved {
+      stroke-dasharray: none !important;
+      stroke-dashoffset: 0 !important;
+      animation: none !important;
+    }
+
+    .filament-animated .node--resolved,
+    .filament-animated .filament-glow {
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
+    }
   }
 </style>
