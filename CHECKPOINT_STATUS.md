@@ -1,35 +1,31 @@
 # S.goto Lab Official Website — Checkpoint Status Record
 
 ```text
-Checkpoint: CP1 — VERIFIED_COMPLETE
-Last verified commit: 45f1114 (feat(scaffold): initialize independent Astro static foundation with TypeScript, CSS tokens, and page skeletons)
+Checkpoint: CP2 — VERIFIED_COMPLETE
+Last verified commit: f49d8b4 (feat(editorial): implement Checkpoint 2 visual experience, wordmark studies, Filament component, and multi-viewport test evidence)
 Working tree: Clean (Status record updated)
 Completed:
-  - Initialized local Git repository on branch `main` and verified user configuration.
-  - Configured `package.json` with pinned dependencies (Astro v5.18.2, TypeScript v5.7.3, @astrojs/check v0.9.12, @playwright/test v1.50.1, Vitest v3.0.5, @types/node).
-  - Generated deterministic `package-lock.json` via npm install (0 vulnerabilities affecting runtime, strict clean lockfile).
-  - Established CSS design token system (`tokens.css`, `reset.css`, `global.css`) embedding the approved Ink, Paper & Vermilion palette (`#171819`, `#F4F1E9`, `#B43F30`), fluid typography scales via clamp(), and surface primitives.
-  - Implemented semantic document shell components (`BaseLayout.astro`, `SkipLink.astro`, `Header.astro`, `Footer.astro`) with accessible keyboard navigation, responsive mobile drawer toggle, and SEO metadata.
-  - Scaffolded initial pages adhering to approved visitor narrative: `/` (Home), `/capabilities` (Capabilities), `/about` (About), `/contact` (Guided Conversation), and `/404` (Error).
-  - Strictly enforced WEB-007: verified `/work` route is absent and returns HTTP 404.
-  - Audited `dist/` static output for leak boundaries: verified zero occurrences of unapproved products (SerialNow / Phantom), personal emails, or placeholder emails.
+  - Integrated approved copy drafts across Home, Capabilities, About, and Contact.
+  - Authored `Filament.astro` encapsulating exact invariant geometry (5 incoming neutral strands -> 1 convergence node -> 1 outgoing vermilion line).
+  - Designed and authored `brand-study.astro` presenting three differentiated optical wordmark candidates (Candidate 1: Geometric Contemporary, Candidate 2: Editorial Hybrid, Candidate 3: Archival Monoline) with scale studies and contrast audits.
+  - Implemented `@axe-core/playwright` and resolved all WCAG 2.2 AA contrast violations across both dark (#171819) and warm paper (#F4F1E9) surfaces.
+  - Verified responsive navigation flows across mobile drawer and desktop navigation bars; confirmed /work route is completely absent.
+  - Generated and saved visual evidence across three viewports (360px mobile, 768px tablet, 1440px desktop) for all 5 site pages.
+  - Re-audited `dist/` static output to verify clean leak boundary.
 Tests run:
-  - `npm test` -> Vitest v3.2.7: 1 test file passed, 2/2 tests passed (route boundaries & brand palette verification).
-  - `npm run check` -> Astro check v5.18.2: 15 files checked, 0 errors, 0 warnings, 0 hints.
-  - `npm run build` -> Astro build: static output mode, 5 pages built in 1.07s into `dist/` (/index.html, /about/index.html, /capabilities/index.html, /contact/index.html, /404.html).
+  - `npm test` -> Vitest v3.2.7: 1 test file passed, 2/2 tests passed.
+  - `npm run check` -> Astro check v5.18.2: 20 files checked, 0 errors, 0 warnings, 0 hints.
+  - `npx playwright test` -> Playwright E2E & Accessibility suite: 26 passed across Chromium and Mobile Chrome (12 accessibility route audits, 8 navigation & user flow assertions, 6 multi-viewport screenshot captures).
+  - `npm run build` -> Astro static build: 6 HTML pages emitted into `dist/` in 1.46s.
   - `grep -ri "serialnow\|phantom\|shagoto@\|hello@" dist/` -> Clean (0 occurrences).
-  - Local preview server smoke test via curl:
-      - `GET /` -> HTTP 200
-      - `GET /capabilities` -> HTTP 200
-      - `GET /about` -> HTTP 200
-      - `GET /contact` -> HTTP 200
-      - `GET /404` -> HTTP 200
-      - `GET /work` -> HTTP 404
-Visual evidence: Local preview verified via curl; full visual browser screenshots scheduled for Checkpoint 2 visual gate.
-Remaining tasks: Checkpoint 2 (Editorial content refinement, responsive visual layouts, 2–3 optical wordmark/font candidates, static Filament SVG implementation, founder visual review).
+Visual evidence:
+  - Mobile (360px): `screenshots/mobile-360/{home,capabilities,about,contact,brand-study}.png`
+  - Tablet (768px): `screenshots/tablet-768/{home,capabilities,about,contact,brand-study}.png`
+  - Desktop (1440px): `screenshots/desktop-1440/{home,capabilities,about,contact,brand-study}.png`
+Remaining tasks: Checkpoint 3 (Filament directed cinematic motion, progressive SVG animation, static fallback, reduced-motion overrides, runtime performance profiling).
 Risks / founder decisions:
+  - Founder visual review of Wordmark Candidates (1, 2, or 3) on `/brand-study`.
   - Public contact email address not yet supplied (safe inactive preview in place; release blocker for CP5).
   - Public founder attribution exact copy pending founder sign-off (institutional copy in place).
-  - Founder visual sign-off required at Checkpoint 2 gate for wordmark letterforms and typography.
-STOP condition: Checkpoint 1 complete. STOPPED. Awaiting explicit founder `PROCEED` to begin Checkpoint 2.
+STOP condition: Checkpoint 2 complete. STOPPED. Awaiting founder visual review of wordmark candidates and explicit `PROCEED` to begin Checkpoint 3.
 ```
