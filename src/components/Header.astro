@@ -22,7 +22,7 @@ function isActive(href: string) {
 <header class="site-header" id="site-header">
   <div class="container header-container">
     <a href="/" class="brand-link" aria-label="S.goto Lab homepage">
-      <span class="brand-name">S.goto Lab</span>
+      <span class="brand-name"><span class="wm-letter">S</span><span class="wm-period wm-period--accent">.</span><span class="wm-name">goto</span> <span class="wm-lab">Lab</span></span>
     </a>
 
     <!-- Desktop Navigation -->
@@ -108,9 +108,19 @@ function isActive(href: string) {
     font-family: var(--font-sans);
     font-size: var(--font-size-md);
     font-weight: 600;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.025em;
     color: var(--text-dark-primary);
     transition: color var(--transition-fast);
+  }
+
+  .brand-name .wm-period--accent {
+    color: var(--color-vermilion);
+  }
+
+  .brand-name .wm-lab {
+    font-weight: 400;
+    opacity: 0.85;
+    margin-left: 0.2rem;
   }
 
   .brand-link:hover .brand-name {

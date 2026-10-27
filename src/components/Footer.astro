@@ -7,7 +7,7 @@ const currentYear = new Date().getFullYear();
   <div class="container footer-container">
     <div class="footer-top">
       <div class="footer-brand">
-        <span class="footer-title">S.goto Lab</span>
+        <span class="footer-title"><span class="wm-letter">S</span><span class="wm-period wm-period--accent">.</span><span class="wm-name">goto</span> <span class="wm-lab">Lab</span></span>
         <p class="footer-tagline">
           Independent solutions studio and curated publisher. Exploring real-world friction to design purposeful systems.
         </p>
@@ -73,8 +73,19 @@ const currentYear = new Date().getFullYear();
     display: block;
     font-size: var(--font-size-md);
     font-weight: 600;
+    letter-spacing: -0.025em;
     color: var(--text-dark-primary);
     margin-bottom: var(--space-3);
+  }
+
+  .footer-title .wm-period--accent {
+    color: var(--color-vermilion);
+  }
+
+  .footer-title .wm-lab {
+    font-weight: 400;
+    opacity: 0.85;
+    margin-left: 0.2rem;
   }
 
   .footer-tagline {
