@@ -1,0 +1,514 @@
+---
+// src/pages/brand-study.astro
+// Checkpoint 2 Visual Gate: Wordmark Optical Refinements & Identity Studies
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Filament from "../components/Filament.astro";
+
+const pageTitle = "Brand & Wordmark Studies — S.goto Lab";
+const pageDescription = "Optical wordmark refinements and typographic evaluation candidates for founder review.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} noIndex={true}>
+  <div class="brand-study-page">
+    <header class="study-hero surface-dark">
+      <div class="container container--narrow">
+        <div class="study-tag-wrapper">
+          <span class="study-tag font-mono">
+            <span class="study-dot" aria-hidden="true"></span>
+            Checkpoint 2 Visual Review Gate
+          </span>
+        </div>
+        <h1 class="study-title font-serif">
+          Wordmark Optical Refinements
+        </h1>
+        <p class="study-intro text-secondary">
+          Per WEB-004, the creative direction for S.goto Lab is approved, while the final finished letterforms and artwork require founder review. Below are three genuinely differentiated optical treatments designed to evaluate typography, optical weighting, and scale relationships across dark and light surfaces.
+        </p>
+      </div>
+    </header>
+
+    <!-- Candidate A -->
+    <section class="candidate-section surface-dark">
+      <div class="container container--narrow">
+        <div class="candidate-header">
+          <span class="candidate-badge font-mono">Candidate 01</span>
+          <h2 class="candidate-name font-serif">Geometric Contemporary (Technical Precision)</h2>
+          <p class="candidate-philosophy text-secondary">
+            Inspired by high-precision technical innovators and instrument design. Features tight optical kerning, geometric balance, and an uncompromising modern aesthetic.
+          </p>
+        </div>
+
+        <div class="preview-box preview-box--dark">
+          <span class="preview-label font-mono">Dark Surface (Hero Scale)</span>
+          <div class="wordmark-display wordmark--candidate-a">
+            <span class="wm-letter">S</span><span class="wm-period wm-period--accent">.</span><span class="wm-name">goto</span> <span class="wm-lab">Lab</span>
+          </div>
+        </div>
+
+        <div class="preview-box preview-box--light">
+          <span class="preview-label font-mono">Light Surface (Hero Scale)</span>
+          <div class="wordmark-display wordmark--candidate-a wordmark--on-light">
+            <span class="wm-letter">S</span><span class="wm-period wm-period--accent">.</span><span class="wm-name">goto</span> <span class="wm-lab">Lab</span>
+          </div>
+        </div>
+
+        <div class="scale-row">
+          <div class="scale-item">
+            <span class="scale-label font-mono">Header / Nav Scale (19px)</span>
+            <div class="wordmark-nav wordmark--candidate-a">
+              <span class="wm-letter">S</span><span class="wm-period wm-period--accent">.</span><span class="wm-name">goto</span> <span class="wm-lab">Lab</span>
+            </div>
+          </div>
+          <div class="scale-item">
+            <span class="scale-label font-mono">Small Format / Icon</span>
+            <div class="small-badge wordmark--candidate-a">
+              <span>S<span class="wm-period--accent">.</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="spec-table">
+          <div class="spec-row">
+            <span class="spec-key font-mono">Foundation:</span>
+            <span class="spec-val">Engineered geometric sans (-apple-system, Segoe UI, Inter, Roboto).</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key font-mono">Letterspacing:</span>
+            <span class="spec-val">-0.025em (compressed precision, crisp visual lockup).</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key font-mono">Contrast Audit:</span>
+            <span class="spec-val">15.1:1 on #171819 (WCAG AAA); Vermilion dot is 4.6:1 against dark backdrop.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Candidate B -->
+    <section class="candidate-section surface-paper">
+      <div class="container container--narrow">
+        <div class="candidate-header">
+          <span class="candidate-badge font-mono">Candidate 02</span>
+          <h2 class="candidate-name font-serif">Editorial Hybrid (Literary Authority &amp; Studio Craft)</h2>
+          <p class="candidate-philosophy text-secondary">
+            Embraces the 60% editorial / 30% contemporary / 10% experimental balance (WEB-002). Features classical serifs paired with contemporary restraint, evoking an established independent press or research studio.
+          </p>
+        </div>
+
+        <div class="preview-box preview-box--light">
+          <span class="preview-label font-mono">Light Surface (Hero Scale)</span>
+          <div class="wordmark-display wordmark--candidate-b">
+            <span class="wm-initials">S.</span><span class="wm-brand">goto</span> <span class="wm-unit">Lab</span>
+          </div>
+        </div>
+
+        <div class="preview-box preview-box--dark">
+          <span class="preview-label font-mono">Dark Surface (Hero Scale)</span>
+          <div class="wordmark-display wordmark--candidate-b wordmark--on-dark">
+            <span class="wm-initials">S.</span><span class="wm-brand">goto</span> <span class="wm-unit">Lab</span>
+          </div>
+        </div>
+
+        <div class="scale-row">
+          <div class="scale-item">
+            <span class="scale-label font-mono">Header / Nav Scale (20px)</span>
+            <div class="wordmark-nav wordmark--candidate-b">
+              <span class="wm-initials">S.</span><span class="wm-brand">goto</span> <span class="wm-unit">Lab</span>
+            </div>
+          </div>
+          <div class="scale-item">
+            <span class="scale-label font-mono">Small Format / Icon</span>
+            <div class="small-badge wordmark--candidate-b">
+              <span>S<sub>g</sub></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="spec-table">
+          <div class="spec-row">
+            <span class="spec-key font-mono">Foundation:</span>
+            <span class="spec-val">Newsreader / Charter transitional serif paired with humanist sans.</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key font-mono">Letterspacing:</span>
+            <span class="spec-val">-0.015em with optical kerning on initial caps.</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key font-mono">Contrast Audit:</span>
+            <span class="spec-val">15.1:1 on #F4F1E9; high legibility across all editorial body passages.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Candidate C -->
+    <section class="candidate-section surface-dark">
+      <div class="container container--narrow">
+        <div class="candidate-header">
+          <span class="candidate-badge font-mono">Candidate 03</span>
+          <h2 class="candidate-name font-serif">Archival Monoline (Architectural Reserve)</h2>
+          <p class="candidate-philosophy text-secondary">
+            Understated, architectural lettering with wide tracking and deliberate letterform rhythm. Evokes permanent laboratory institutional records and quiet confidence.
+          </p>
+        </div>
+
+        <div class="preview-box preview-box--dark">
+          <span class="preview-label font-mono">Dark Surface (Hero Scale)</span>
+          <div class="wordmark-display wordmark--candidate-c">
+            <span class="wm-main">S.GOTO</span> <span class="wm-sub">LAB</span>
+          </div>
+        </div>
+
+        <div class="preview-box preview-box--light">
+          <span class="preview-label font-mono">Light Surface (Hero Scale)</span>
+          <div class="wordmark-display wordmark--candidate-c wordmark--on-light">
+            <span class="wm-main">S.GOTO</span> <span class="wm-sub">LAB</span>
+          </div>
+        </div>
+
+        <div class="scale-row">
+          <div class="scale-item">
+            <span class="scale-label font-mono">Header / Nav Scale (18px)</span>
+            <div class="wordmark-nav wordmark--candidate-c">
+              <span class="wm-main">S.GOTO</span> <span class="wm-sub">LAB</span>
+            </div>
+          </div>
+          <div class="scale-item">
+            <span class="scale-label font-mono">Small Format / Icon</span>
+            <div class="small-badge wordmark--candidate-c">
+              <span>S·L</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="spec-table">
+          <div class="spec-row">
+            <span class="spec-key font-mono">Foundation:</span>
+            <span class="spec-val">Monoline geometric grotesque with extended tracking.</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key font-mono">Letterspacing:</span>
+            <span class="spec-val">+0.08em (open, architectural rhythm).</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key font-mono">Contrast Audit:</span>
+            <span class="spec-val">15.1:1 on #171819; maximum character clarity at small physical dimensions.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filament Pairing Showcase -->
+    <section class="pairing-section surface-paper">
+      <div class="container container--narrow">
+        <span class="section-tag text-muted font-mono">Identity Relationship</span>
+        <h2 class="candidate-name font-serif">Filament &amp; Wordmark Coexistence</h2>
+        <p class="candidate-philosophy text-secondary">
+          Per WEB-004, the Filament is an independent signature and must never be rigidly fused with the wordmark. Below is the approved hero composition showing harmonious co-existence:
+        </p>
+
+        <div class="pairing-box surface-dark">
+          <div class="pairing-lockup">
+            <div class="wordmark-display wordmark--candidate-a">
+              <span class="wm-letter">S</span><span class="wm-period wm-period--accent">.</span><span class="wm-name">goto</span> <span class="wm-lab">Lab</span>
+            </div>
+            <p class="pairing-subline text-secondary">
+              Independent Solutions Studio &amp; Publisher
+            </p>
+          </div>
+          <Filament maxWidth="840px" />
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .study-hero {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-16);
+    border-bottom: 1px solid var(--border-dark);
+  }
+
+  .study-tag-wrapper {
+    margin-bottom: var(--space-4);
+  }
+
+  .study-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-dark-secondary);
+  }
+
+  .study-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-vermilion);
+  }
+
+  .study-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 400;
+    margin-bottom: var(--space-6);
+  }
+
+  .study-intro {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .candidate-section {
+    padding-block: var(--space-20);
+    border-bottom: 1px solid var(--border-dark);
+  }
+
+  .candidate-header {
+    margin-bottom: var(--space-10);
+  }
+
+  .candidate-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-xs);
+    color: var(--text-dark-secondary);
+    margin-bottom: var(--space-2);
+  }
+
+  .surface-paper .candidate-badge {
+    color: var(--text-light-secondary);
+  }
+
+  .candidate-name {
+    font-size: var(--font-size-2xl);
+    font-weight: 400;
+    margin-bottom: var(--space-3);
+  }
+
+  .candidate-philosophy {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .preview-box {
+    padding: var(--space-10);
+    border-radius: 2px;
+    margin-bottom: var(--space-6);
+    position: relative;
+    border: 1px solid;
+  }
+
+  .preview-box--dark {
+    background-color: var(--color-ink);
+    border-color: var(--border-dark);
+    color: var(--text-dark-primary);
+  }
+
+  .preview-box--light {
+    background-color: var(--color-paper);
+    border-color: var(--border-light);
+    color: var(--text-light-primary);
+  }
+
+  .preview-box--dark .preview-label {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-4);
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dark-muted);
+  }
+
+  .preview-box--light .preview-label {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-4);
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-light-muted);
+  }
+
+  .wordmark-display {
+    padding-block: var(--space-4);
+    user-select: none;
+  }
+
+  /* Candidate A Styles */
+  .wordmark--candidate-a {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+
+  .wordmark--candidate-a.wordmark-display {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .wordmark--candidate-a .wm-period--accent {
+    color: var(--color-vermilion);
+  }
+
+  .wordmark--candidate-a .wm-lab {
+    font-weight: 400;
+    opacity: 0.85;
+    margin-left: 0.25rem;
+  }
+
+  /* Candidate B Styles */
+  .wordmark--candidate-b {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+  }
+
+  .wordmark--candidate-b.wordmark-display {
+    font-size: clamp(2.75rem, 5.5vw, 4.25rem);
+  }
+
+  .wordmark--candidate-b .wm-initials {
+    font-style: italic;
+    color: var(--color-vermilion);
+    margin-right: 0.15rem;
+  }
+
+  .wordmark--candidate-b .wm-unit {
+    font-family: var(--font-sans);
+    font-size: 0.75em;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+    opacity: 0.85;
+  }
+
+  /* Candidate C Styles */
+  .wordmark--candidate-c {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+  }
+
+  .wordmark--candidate-c.wordmark-display {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+  }
+
+  .wordmark--candidate-c .wm-sub {
+    font-size: 0.75em;
+    opacity: 0.85;
+    margin-left: 0.5rem;
+  }
+
+  .wordmark--candidate-c.wordmark--on-light .wm-sub {
+    color: var(--color-vermilion);
+    opacity: 1;
+  }
+
+  .wordmark--on-light {
+    color: var(--text-light-primary);
+  }
+
+  .wordmark--on-dark {
+    color: var(--text-dark-primary);
+  }
+
+  .scale-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-8);
+    align-items: center;
+    padding-block: var(--space-6);
+    border-top: 1px solid var(--border-dark);
+    margin-bottom: var(--space-6);
+  }
+
+  .scale-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .scale-label {
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-dark-muted);
+  }
+
+  .surface-paper .scale-label {
+    color: var(--text-light-muted);
+  }
+
+  .wordmark-nav {
+    font-size: 1.25rem;
+  }
+
+  .small-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid currentColor;
+    border-radius: 2px;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .spec-table {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding-top: var(--space-4);
+    border-top: 1px dashed var(--border-dark);
+  }
+
+  .spec-row {
+    display: flex;
+    gap: var(--space-4);
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-normal);
+  }
+
+  .spec-key {
+    min-width: 120px;
+    opacity: 0.7;
+  }
+
+  .pairing-section {
+    padding-block: var(--space-24);
+  }
+
+  .pairing-box {
+    background-color: var(--color-ink);
+    color: var(--text-dark-primary);
+    padding: var(--space-12);
+    border-radius: 2px;
+    border: 1px solid var(--border-dark);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+    align-items: center;
+    margin-top: var(--space-8);
+  }
+
+  .pairing-lockup {
+    text-align: center;
+  }
+
+  .pairing-subline {
+    font-size: var(--font-size-sm);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: var(--space-2);
+    color: var(--text-dark-secondary);
+  }
+</style>

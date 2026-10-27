@@ -1,6 +1,7 @@
 ---
 // src/pages/index.astro
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Filament from "../components/Filament.astro";
 
 const pageTitle = "S.goto Lab — Independent Solutions Studio & Publisher";
 const pageDescription = "S.goto Lab explores real-world inefficiencies and operational friction, designing and developing useful tools, applications, and curated systems.";
@@ -11,7 +12,10 @@ const pageDescription = "S.goto Lab explores real-world inefficiencies and opera
   <section class="hero-section surface-dark">
     <div class="container hero-container">
       <div class="hero-content">
-        <span class="hero-eyebrow">Independent Solutions Studio &amp; Publisher</span>
+        <div class="hero-eyebrow font-mono">
+          <span class="eyebrow-node" aria-hidden="true"></span>
+          <span>Independent Solutions Studio &amp; Publisher</span>
+        </div>
         <h1 class="hero-title font-serif">
           From everyday friction to purposeful systems.
         </h1>
@@ -28,19 +32,9 @@ const pageDescription = "S.goto Lab explores real-world inefficiencies and opera
         </div>
       </div>
 
-      <!-- Static Filament Concept Graphic (Temporary Baseline) -->
-      <div class="hero-filament-wrapper" aria-hidden="true">
-        <svg class="hero-filament-svg" viewBox="0 0 1000 360" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g stroke-linecap="round" stroke-width="1.8">
-            <path d="M 25,25 C 270,25 315,180 650,180" stroke="#8F8A82" />
-            <path d="M 25,105 C 280,105 335,180 650,180" stroke="#B9B3A9" />
-            <path d="M 25,180 H 650" stroke="#D6D0C7" />
-            <path d="M 25,255 C 280,255 335,180 650,180" stroke="#B9B3A9" />
-            <path d="M 25,335 C 270,335 315,180 650,180" stroke="#8F8A82" />
-            <path d="M 650,180 H 975" stroke="#B43F30" stroke-width="3.6" />
-          </g>
-          <circle cx="650" cy="180" r="6.5" fill="#B43F30" />
-        </svg>
+      <!-- Signature Filament Graphic -->
+      <div class="hero-filament-wrapper">
+        <Filament maxWidth="920px" />
       </div>
     </div>
   </section>
@@ -184,11 +178,22 @@ const pageDescription = "S.goto Lab explores real-world inefficiencies and opera
   }
 
   .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
     font-size: var(--font-size-xs);
     font-family: var(--font-mono);
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--color-vermilion);
+    color: var(--text-dark-secondary);
+  }
+
+  .eyebrow-node {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-vermilion);
+    display: inline-block;
   }
 
   .hero-title {

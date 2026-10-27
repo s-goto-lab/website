@@ -1,0 +1,116 @@
+---
+// src/components/Filament.astro
+// Signature Graphic: The Filament (WEB-004 Invariant Geometry)
+// Invariants: 5 incoming strands -> 1 convergence node -> 1 outgoing vermilion line.
+interface Props {
+  class?: string;
+  maxWidth?: string;
+}
+
+const { class: className = "", maxWidth = "960px" } = Astro.props;
+---
+
+<div class={`filament-container ${className}`} style={`--max-width: ${maxWidth};`}>
+  <svg
+    class="filament-svg"
+    viewBox="0 0 1000 360"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    role="img"
+    aria-labelledby="filament-title filament-desc"
+  >
+    <title id="filament-title">The Filament Signature</title>
+    <desc id="filament-desc">
+      Five fine neutral strands converge gracefully into a single node; exactly one resolved vermilion line extends onward, symbolizing complexity resolved into a purposeful solution.
+    </desc>
+
+    <!-- Subtle ambient glow around convergence node -->
+    <circle
+      cx="650"
+      cy="180"
+      r="22"
+      fill="rgba(180, 63, 48, 0.12)"
+      class="filament-glow"
+    />
+
+    <!-- Incoming strands & single outgoing resolved line -->
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path
+        d="M 25,25 C 270,25 315,180 650,180"
+        stroke="#8F8A82"
+        stroke-width="1.8"
+        class="strand strand--top-outer"
+      />
+      <path
+        d="M 25,105 C 280,105 335,180 650,180"
+        stroke="#B9B3A9"
+        stroke-width="1.8"
+        class="strand strand--top-inner"
+      />
+      <path
+        d="M 25,180 H 650"
+        stroke="#D6D0C7"
+        stroke-width="2.0"
+        class="strand strand--center"
+      />
+      <path
+        d="M 25,255 C 280,255 335,180 650,180"
+        stroke="#B9B3A9"
+        stroke-width="1.8"
+        class="strand strand--bottom-inner"
+      />
+      <path
+        d="M 25,335 C 270,335 315,180 650,180"
+        stroke="#8F8A82"
+        stroke-width="1.8"
+        class="strand strand--bottom-outer"
+      />
+      <!-- Exactly ONE continuing vermilion line -->
+      <path
+        d="M 650,180 H 975"
+        stroke="#B43F30"
+        stroke-width="3.8"
+        class="strand--resolved"
+      />
+    </g>
+
+    <!-- Single terminal convergence node -->
+    <circle
+      cx="650"
+      cy="180"
+      r="6.5"
+      fill="#B43F30"
+      class="node--resolved"
+    />
+  </svg>
+</div>
+
+<style>
+  .filament-container {
+    width: 100%;
+    max-width: var(--max-width, 960px);
+    margin-inline: auto;
+    position: relative;
+    user-select: none;
+  }
+
+  .filament-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible;
+  }
+
+  .strand {
+    opacity: 0.95;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .strand--resolved {
+    vector-effect: non-scaling-stroke;
+  }
+
+  .node--resolved {
+    filter: drop-shadow(0 0 4px rgba(180, 63, 48, 0.4));
+  }
+</style>
