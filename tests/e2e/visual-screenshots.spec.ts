@@ -3,9 +3,14 @@ import fs from "node:fs";
 import path from "node:path";
 
 const viewports = [
+  { name: "mobile-320", width: 320, height: 568 },
   { name: "mobile-360", width: 360, height: 640 },
+  { name: "mobile-375", width: 375, height: 667 },
+  { name: "mobile-390", width: 390, height: 844 },
   { name: "tablet-768", width: 768, height: 1024 },
+  { name: "laptop-1024", width: 1024, height: 768 },
   { name: "desktop-1440", width: 1440, height: 900 },
+  { name: "desktop-wide-1920", width: 1920, height: 1080 },
 ];
 
 const routes = [
@@ -13,7 +18,7 @@ const routes = [
   { path: "/capabilities", name: "capabilities" },
   { path: "/about", name: "about" },
   { path: "/contact", name: "contact" },
-  { path: "/brand-study", name: "brand-study" },
+  { path: "/404", name: "404" },
 ];
 
 test.describe("Visual Evidence Captures", () => {

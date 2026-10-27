@@ -76,4 +76,17 @@ test.describe("Filament Signature & Directed Cinematic Motion (WEB-009)", () => 
     const discussBtn = page.locator('.hero-actions >> text=Discuss a Problem');
     await expect(discussBtn).toBeVisible();
   });
+
+  test("ultra-narrow mobile viewport (320px) maintains visual proportionality without horizontal overflow", async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 568 });
+    await page.goto("/");
+
+    const hasHorizontalOverflow = await page.evaluate(() => {
+      return document.documentElement.scrollWidth > document.documentElement.clientWidth;
+    });
+    expect(hasHorizontalOverflow).toBe(false);
+
+    const discussBtn = page.locator('.hero-actions >> text=Discuss a Problem');
+    await expect(discussBtn).toBeVisible();
+  });
 });

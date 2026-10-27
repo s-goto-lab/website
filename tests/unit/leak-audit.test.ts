@@ -1,6 +1,7 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeAll } from "vitest";
 import * as fs from "node:fs";
 import * as path from "node:path";
+import { execSync } from "node:child_process";
 
 const DIST_DIR = path.resolve(__dirname, "../../dist");
 
@@ -19,6 +20,14 @@ function getAllFiles(dir: string, fileList: string[] = []): string[] {
 }
 
 describe("Build Output & Leak Boundary Audit (WEB-007, WEB-008)", () => {
+  beforeAll(() => {
+    // Enforce a fresh production build so that audits strictly evaluate current source output
+    execSync("npm run build", {
+      cwd: path.resolve(__dirname, "../../"),
+      stdio: "pipe",
+    });
+  });
+
   it("verifies dist/ exists and contains approved static HTML output", () => {
     expect(fs.existsSync(DIST_DIR)).toBe(true);
     expect(fs.existsSync(path.join(DIST_DIR, "index.html"))).toBe(true);
@@ -34,6 +43,12 @@ describe("Build Output & Leak Boundary Audit (WEB-007, WEB-008)", () => {
     expect(fs.existsSync(path.join(DIST_DIR, "work"))).toBe(false);
     expect(fs.existsSync(path.join(DIST_DIR, "work/index.html"))).toBe(false);
     expect(fs.existsSync(path.join(DIST_DIR, "work.html"))).toBe(false);
+  });
+
+  it("strictly confirms internal preview route /brand-study does NOT exist in dist/", () => {
+    expect(fs.existsSync(path.join(DIST_DIR, "brand-study"))).toBe(false);
+    expect(fs.existsSync(path.join(DIST_DIR, "brand-study/index.html"))).toBe(false);
+    expect(fs.existsSync(path.join(DIST_DIR, "brand-study.html"))).toBe(false);
   });
 
   it("strictly scans all files in dist/ for prohibited leak keywords", () => {
@@ -70,6 +85,7 @@ describe("Build Output & Leak Boundary Audit (WEB-007, WEB-008)", () => {
   });
 
   it("strictly confirms no dummy or unverified mailto addresses appear in dist/", () => {
+    const configuredEmail = process.env.PUBLIC_CONTACT_EMAIL?.trim();
     const files = getAllFiles(DIST_DIR);
     const violations: { file: string; email: string }[] = [];
 
@@ -77,19 +93,29 @@ describe("Build Output & Leak Boundary Audit (WEB-007, WEB-008)", () => {
       if (/\.(html|js)$/i.test(file)) {
         const content = fs.readFileSync(file, "utf-8");
         // Check for any actual mailto links (e.g. href="mailto:someone@example.com")
-        const mailtoMatches = content.match(/href=["']mailto:[^"']+["']/gi);
+        const mailtoMatches = content.match(/href=["']mailto:([^"']+)["']/gi);
         if (mailtoMatches) {
           for (const match of mailtoMatches) {
-            violations.push({
-              file: path.relative(DIST_DIR, file),
-              email: match,
-            });
+            if (configuredEmail) {
+              if (!match.includes(`mailto:${configuredEmail}`)) {
+                violations.push({
+                  file: path.relative(DIST_DIR, file),
+                  email: match,
+                });
+              }
+            } else {
+              violations.push({
+                file: path.relative(DIST_DIR, file),
+                email: match,
+              });
+            }
           }
         }
       }
     }
 
-    // In local development preview, no active mailto link should be configured.
+    // When unconfigured, zero active mailto links should exist.
+    // When configured, only the verified founder email is allowed.
     expect(violations).toEqual([]);
   });
 });

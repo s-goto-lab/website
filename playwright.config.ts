@@ -22,7 +22,7 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: "npm run dev -- --host 127.0.0.1 --port 4321 --no-toolbar",
+    command: "npm run build && npx astro preview --host 127.0.0.1 --port 4321",
     url: "http://127.0.0.1:4321",
     reuseExistingServer: !process.env.CI,
     timeout: 120000,

@@ -48,12 +48,7 @@ test.describe("SEO, Metadata & Canonical Integrity (WEB-001, WEB-008)", () => {
     });
   }
 
-  test("verifies noindex on unlisted preview & error routes (/brand-study, /404)", async ({ page }) => {
-    // /brand-study
-    await page.goto("/brand-study");
-    const brandRobots = await page.locator('meta[name="robots"]').getAttribute("content");
-    expect(brandRobots).toBe("noindex, nofollow");
-
+  test("verifies noindex on error route (/404) and absence of /brand-study", async ({ page }) => {
     // /404
     await page.goto("/404");
     const notFoundRobots = await page.locator('meta[name="robots"]').getAttribute("content");
