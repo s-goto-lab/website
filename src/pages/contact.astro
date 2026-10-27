@@ -1,0 +1,391 @@
+---
+// src/pages/contact.astro
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "Contact — S.goto Lab";
+const pageDescription = "Initiate a conversation with S.goto Lab regarding operational friction, selected commissioned solutions, or general inquiries.";
+
+const categories = [
+  {
+    id: "problem",
+    label: "Discuss a Problem / Commissioned Solution",
+    badge: "Selected Inquiries",
+    description: "Describe an operational bottleneck, repetitive friction, or opportunity for a purpose-built system.",
+    subjectPrefix: "[S.goto Lab Inquiry: Problem Evaluation]",
+    bodyPlaceholder: "Brief description of the problem, who it impacts, and current workarounds...",
+  },
+  {
+    id: "collaboration",
+    label: "Collaboration & Partnership",
+    badge: "Partnership",
+    description: "Explore research, co-creation, or technical alignment with S.goto Lab initiatives.",
+    subjectPrefix: "[S.goto Lab Inquiry: Collaboration]",
+    bodyPlaceholder: "Overview of your initiative, team, and proposed area of collaboration...",
+  },
+  {
+    id: "general",
+    label: "General Inquiry",
+    badge: "General",
+    description: "Questions regarding our studio philosophy, published work, or general orientation.",
+    subjectPrefix: "[S.goto Lab Inquiry: General]",
+    bodyPlaceholder: "Your question or comment for the studio...",
+  },
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} surfaceTheme="surface-paper">
+  <div class="contact-page">
+    <header class="page-hero">
+      <div class="container container--narrow">
+        <span class="hero-tag font-mono text-muted">Guided Inquiries</span>
+        <h1 class="hero-title font-serif">
+          Every solution begins with a conversation.
+        </h1>
+        <p class="hero-lead text-secondary">
+          Tell us about the problem, opportunity, or question you have in mind. A concise description is enough to start.
+        </p>
+      </div>
+    </header>
+
+    <section class="inquiry-section">
+      <div class="container container--narrow">
+        <div class="guided-flow">
+          <div class="step-header">
+            <span class="step-badge font-mono">Step 1</span>
+            <h2 class="step-title font-serif">Select your inquiry focus</h2>
+          </div>
+
+          <div class="categories-grid" role="radiogroup" aria-label="Inquiry Categories">
+            {categories.map((cat, index) => (
+              <label class="category-card" for={`cat-${cat.id}`}>
+                <input
+                  type="radio"
+                  name="inquiry-category"
+                  id={`cat-${cat.id}`}
+                  value={cat.id}
+                  checked={index === 0}
+                  class="category-input"
+                  data-subject={cat.subjectPrefix}
+                  data-body={cat.bodyPlaceholder}
+                />
+                <div class="card-content">
+                  <span class="card-badge font-mono">{cat.badge}</span>
+                  <span class="card-title">{cat.label}</span>
+                  <p class="card-desc text-secondary">{cat.description}</p>
+                </div>
+              </label>
+            ))}
+          </div>
+
+          <div class="inquiry-preview-card">
+            <div class="preview-header">
+              <span class="preview-tag font-mono text-muted">Preview Dispatch Format</span>
+              <span class="delivery-badge font-mono">Delivery Method: Verified mailto:</span>
+            </div>
+
+            <div class="preview-fields">
+              <div class="preview-field">
+                <span class="field-label font-mono">Target Route:</span>
+                <span class="field-value font-mono" id="preview-destination">
+                  [Public Address Pending Founder Verification]
+                </span>
+              </div>
+              <div class="preview-field">
+                <span class="field-label font-mono">Prefilled Subject:</span>
+                <span class="field-value" id="preview-subject">
+                  [S.goto Lab Inquiry: Problem Evaluation]
+                </span>
+              </div>
+            </div>
+
+            <!-- Inactive/Safe Local Preview Notice -->
+            <div class="preview-notice">
+              <p class="notice-text font-mono">
+                <strong>Local Preview State:</strong> Contact delivery uses verified <code>mailto:</code> links. The public mailbox address is intentionally not configured in local development pending explicit founder supply and verification. Active client links will be enabled at the release gate.
+              </p>
+            </div>
+
+            <div class="action-row">
+              <button
+                type="button"
+                class="btn btn-secondary-light btn-disabled"
+                disabled
+                aria-disabled="true"
+                id="contact-launch-btn"
+              >
+                Send via Email Client (Disabled in Preview)
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Privacy & Expectation Boundaries -->
+        <div class="boundaries-grid">
+          <div class="boundary-box">
+            <h3 class="boundary-title font-mono">Evaluation &amp; Capacity</h3>
+            <p class="boundary-text text-secondary">
+              S.goto Lab welcomes inquiries for selected commissioned solutions, but evaluates each individually and may decline. An inquiry is not an agreement to take on work. We do not promise availability, delivery timelines, fixed prices, or guaranteed response times.
+            </p>
+          </div>
+
+          <div class="boundary-box">
+            <h3 class="boundary-title font-mono">Privacy Guidance</h3>
+            <p class="boundary-text text-secondary">
+              Please do not include passwords, credentials, sensitive patient records, or confidential proprietary datasets in an initial inquiry. A high-level operational overview is sufficient.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .contact-page {
+    padding-bottom: var(--space-24);
+  }
+
+  .page-hero {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-16);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .hero-tag {
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: var(--space-4);
+  }
+
+  .hero-title {
+    font-size: var(--font-size-3xl);
+    line-height: var(--line-height-tight);
+    font-weight: 400;
+    margin-bottom: var(--space-6);
+  }
+
+  .hero-lead {
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .inquiry-section {
+    padding-block: var(--space-16);
+  }
+
+  .guided-flow {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-10);
+    margin-bottom: var(--space-16);
+  }
+
+  .step-header {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+  }
+
+  .step-badge {
+    font-size: var(--font-size-xs);
+    color: var(--color-vermilion);
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .step-title {
+    font-size: var(--font-size-xl);
+    font-weight: 400;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .category-card {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    padding: var(--space-6);
+    background-color: var(--color-paper-light);
+    border: 1px solid var(--border-light);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: border-color var(--transition-fast), background-color var(--transition-fast);
+  }
+
+  .category-card:hover {
+    border-color: var(--border-light-hover);
+  }
+
+  .category-card:has(.category-input:checked) {
+    border-color: var(--color-vermilion);
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(23, 24, 25, 0.04);
+  }
+
+  .category-input {
+    margin-top: 0.25rem;
+    margin-right: var(--space-4);
+    accent-color: var(--color-vermilion);
+    cursor: pointer;
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .card-badge {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-vermilion);
+  }
+
+  .card-title {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--text-light-primary);
+  }
+
+  .card-desc {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+  }
+
+  .inquiry-preview-card {
+    padding: var(--space-8);
+    background-color: var(--color-paper-light);
+    border: 1px solid var(--border-light);
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .preview-tag {
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .delivery-badge {
+    font-size: var(--font-size-xs);
+    color: var(--color-vermilion);
+    font-weight: 500;
+  }
+
+  .preview-fields {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .preview-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    font-size: var(--font-size-sm);
+  }
+
+  .field-label {
+    font-size: var(--font-size-xs);
+    color: var(--text-light-muted);
+  }
+
+  .field-value {
+    color: var(--text-light-primary);
+    font-weight: 500;
+  }
+
+  .preview-notice {
+    padding: var(--space-4);
+    background-color: var(--color-paper-muted);
+    border-left: 3px solid var(--border-light);
+  }
+
+  .notice-text {
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-normal);
+    color: var(--text-light-secondary);
+  }
+
+  .btn-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: var(--color-paper-muted);
+  }
+
+  .boundaries-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    padding-top: var(--space-12);
+    border-top: 1px solid var(--border-light);
+  }
+
+  .boundary-box {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .boundary-title {
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-light-muted);
+  }
+
+  .boundary-text {
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-relaxed);
+  }
+
+  @media (min-width: 768px) {
+    .preview-field {
+      flex-direction: row;
+      align-items: baseline;
+      gap: var(--space-4);
+    }
+
+    .field-label {
+      min-width: 130px;
+    }
+
+    .boundaries-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+
+<script>
+  // Dynamic category update for preview
+  const inputs = document.querySelectorAll<HTMLInputElement>('input[name="inquiry-category"]');
+  const subjectEl = document.getElementById("preview-subject");
+
+  inputs.forEach((input) => {
+    input.addEventListener("change", () => {
+      if (input.checked && subjectEl) {
+        const subject = input.getAttribute("data-subject") || "";
+        subjectEl.textContent = subject;
+      }
+    });
+  });
+</script>

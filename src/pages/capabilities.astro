@@ -1,0 +1,320 @@
+---
+// src/pages/capabilities.astro
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "Capabilities — S.goto Lab";
+const pageDescription = "Explore how S.goto Lab approaches operational friction, repetitive manual tasks, fragmented data, and specialized workflow challenges.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} surfaceTheme="surface-paper">
+  <div class="capabilities-page">
+    <!-- Header Hero -->
+    <header class="page-hero">
+      <div class="container container--narrow">
+        <span class="hero-tag font-mono text-muted">Capabilities &amp; Approach</span>
+        <h1 class="hero-title font-serif">
+          Start with the problem.
+        </h1>
+        <p class="hero-lead text-secondary">
+          You don't need to arrive with a technology stack or a finished specification. Begin by describing what isn't working, who it affects, and what a better outcome might look like.
+        </p>
+      </div>
+    </header>
+
+    <!-- Operational Challenges -->
+    <section class="challenges-section">
+      <div class="container container--narrow">
+        <h2 class="section-title font-serif">
+          Common points of friction
+        </h2>
+        <p class="section-intro text-secondary">
+          Meaningful solutions often address persistent, everyday friction that drains time and attention:
+        </p>
+
+        <div class="challenges-list">
+          <div class="challenge-item">
+            <h3 class="challenge-name">Repetitive Manual Work</h3>
+            <p class="challenge-desc text-secondary">
+              Tasks requiring repetitive data re-entry, manual copy-pasting across systems, or routine transformations that divert attention from high-value thinking.
+            </p>
+          </div>
+
+          <div class="challenge-item">
+            <h3 class="challenge-name">Fragmented Information</h3>
+            <p class="challenge-desc text-secondary">
+              Critical operational details scattered across spreadsheets, chat logs, email threads, and disparate software without a single reliable view.
+            </p>
+          </div>
+
+          <div class="challenge-item">
+            <h3 class="challenge-name">Uncoordinated Workflows</h3>
+            <p class="challenge-desc text-secondary">
+              Processes that stall because handoffs between people or tools lack clear status, validation checks, or notification mechanisms.
+            </p>
+          </div>
+
+          <div class="challenge-item">
+            <h3 class="challenge-name">Specialized Gaps</h3>
+            <p class="challenge-desc text-secondary">
+              Discrete, unique operational bottlenecks where commercial off-the-shelf software is either excessively bloated or missing critical edge-case support.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solution Approaches -->
+    <section class="approaches-section">
+      <div class="container container--narrow">
+        <h2 class="section-title font-serif">
+          Potential approaches
+        </h2>
+        <p class="section-intro text-secondary">
+          We evaluate the context before proposing a method. Depending on constraints, solutions may take several forms:
+        </p>
+
+        <div class="approaches-grid">
+          <div class="approach-box">
+            <h3 class="approach-heading">Purpose-Built Software</h3>
+            <p class="approach-text text-secondary">
+              Focused, standalone web applications engineered precisely to support a specific workflow or operational model.
+            </p>
+          </div>
+          <div class="approach-box">
+            <h3 class="approach-heading">Automated Pipelines</h3>
+            <p class="approach-text text-secondary">
+              Lightweight services that automate data synchronization, event triggers, reporting, and inter-system coordination.
+            </p>
+          </div>
+          <div class="approach-box">
+            <h3 class="approach-heading">Internal Management Tools</h3>
+            <p class="approach-text text-secondary">
+              Private administrative interfaces that provide clarity, tracking, and direct oversight over operational state.
+            </p>
+          </div>
+          <div class="approach-box">
+            <h3 class="approach-heading">Custom Integrations</h3>
+            <p class="approach-text text-secondary">
+              Tailored connectors uniting third-party APIs, legacy data sources, and communication platforms cleanly.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How Engagement Proceeds -->
+    <section class="engagement-section">
+      <div class="container container--narrow">
+        <h2 class="section-title font-serif">
+          How engagement proceeds
+        </h2>
+        
+        <ol class="steps-flow">
+          <li class="step-entry">
+            <span class="step-num font-mono">01</span>
+            <div class="step-body">
+              <h3 class="step-title">Discuss the Problem</h3>
+              <p class="step-desc text-secondary">
+                Describe the operational bottleneck, current workarounds, and constraints in a focused initial conversation.
+              </p>
+            </div>
+          </li>
+          <li class="step-entry">
+            <span class="step-num font-mono">02</span>
+            <div class="step-body">
+              <h3 class="step-title">Assess Fit &amp; Constraints</h3>
+              <p class="step-desc text-secondary">
+                We determine whether the challenge matches our approach, technical philosophy, and current studio capacity.
+              </p>
+            </div>
+          </li>
+          <li class="step-entry">
+            <span class="step-num font-mono">03</span>
+            <div class="step-body">
+              <h3 class="step-title">Clarify Solution Scope</h3>
+              <p class="step-desc text-secondary">
+                If there is mutual alignment, we define the concrete technical architecture, deliverables, and terms.
+              </p>
+            </div>
+          </li>
+          <li class="step-entry">
+            <span class="step-num font-mono">04</span>
+            <div class="step-body">
+              <h3 class="step-title">Build, Verify &amp; Hand Off</h3>
+              <p class="step-desc text-secondary">
+                We develop, rigorously test, and deliver a reliable, well-documented solution designed to operate dependably.
+              </p>
+            </div>
+          </li>
+        </ol>
+
+        <!-- Truthful Commercial Qualifier -->
+        <div class="qualifier-box">
+          <p class="qualifier-text text-secondary font-mono">
+            <strong>Note on Capacity:</strong> S.goto Lab welcomes inquiries for selected commissioned solutions. Every inquiry is evaluated individually on fit and feasibility. Discussing a problem does not create an obligation or guarantee that a project will be accepted.
+          </p>
+        </div>
+
+        <div class="engagement-action">
+          <a href="/contact" class="btn btn-primary">
+            Discuss a Problem With Us
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .capabilities-page {
+    padding-bottom: var(--space-24);
+  }
+
+  .page-hero {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-16);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .hero-tag {
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: var(--space-4);
+  }
+
+  .hero-title {
+    font-size: var(--font-size-3xl);
+    line-height: var(--line-height-tight);
+    font-weight: 400;
+    margin-bottom: var(--space-6);
+  }
+
+  .hero-lead {
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .challenges-section,
+  .approaches-section,
+  .engagement-section {
+    padding-block: var(--space-20);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .section-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 400;
+    margin-bottom: var(--space-4);
+  }
+
+  .section-intro {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    margin-bottom: var(--space-10);
+  }
+
+  .challenges-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .challenge-item {
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .challenge-name {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    margin-bottom: var(--space-2);
+  }
+
+  .challenge-desc {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .approaches-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .approach-box {
+    padding: var(--space-6);
+    background-color: var(--color-paper-light);
+    border: 1px solid var(--border-light);
+    border-radius: 2px;
+  }
+
+  .approach-heading {
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    margin-bottom: var(--space-2);
+  }
+
+  .approach-text {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+  }
+
+  .steps-flow {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    margin-bottom: var(--space-12);
+  }
+
+  .step-entry {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-6);
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .step-num {
+    font-size: var(--font-size-sm);
+    color: var(--color-vermilion);
+    padding-top: var(--space-1);
+    min-width: 2rem;
+  }
+
+  .step-title {
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    margin-bottom: var(--space-1);
+  }
+
+  .step-desc {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+  }
+
+  .qualifier-box {
+    padding: var(--space-6);
+    background-color: var(--color-paper-muted);
+    border-left: 3px solid var(--color-vermilion);
+    margin-bottom: var(--space-10);
+    border-radius: 0 2px 2px 0;
+  }
+
+  .qualifier-text {
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .engagement-action {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  @media (min-width: 768px) {
+    .approaches-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

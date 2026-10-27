@@ -1,0 +1,377 @@
+---
+// src/pages/index.astro
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "S.goto Lab — Independent Solutions Studio & Publisher";
+const pageDescription = "S.goto Lab explores real-world inefficiencies and operational friction, designing and developing useful tools, applications, and curated systems.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- Hero Section (Atmospheric Dark) -->
+  <section class="hero-section surface-dark">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <span class="hero-eyebrow">Independent Solutions Studio &amp; Publisher</span>
+        <h1 class="hero-title font-serif">
+          From everyday friction to purposeful systems.
+        </h1>
+        <p class="hero-intro text-secondary">
+          S.goto Lab explores real-world inefficiencies and inconveniences, then designs and develops useful tools, applications, systems, and solutions. We create selected original products and evaluate commissioned work when a problem fits our approach.
+        </p>
+        <div class="hero-actions">
+          <a href="/capabilities" class="btn btn-secondary-dark">
+            Explore Capabilities
+          </a>
+          <a href="/contact" class="btn btn-primary">
+            Discuss a Problem
+          </a>
+        </div>
+      </div>
+
+      <!-- Static Filament Concept Graphic (Temporary Baseline) -->
+      <div class="hero-filament-wrapper" aria-hidden="true">
+        <svg class="hero-filament-svg" viewBox="0 0 1000 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g stroke-linecap="round" stroke-width="1.8">
+            <path d="M 25,25 C 270,25 315,180 650,180" stroke="#8F8A82" />
+            <path d="M 25,105 C 280,105 335,180 650,180" stroke="#B9B3A9" />
+            <path d="M 25,180 H 650" stroke="#D6D0C7" />
+            <path d="M 25,255 C 280,255 335,180 650,180" stroke="#B9B3A9" />
+            <path d="M 25,335 C 270,335 315,180 650,180" stroke="#8F8A82" />
+            <path d="M 650,180 H 975" stroke="#B43F30" stroke-width="3.6" />
+          </g>
+          <circle cx="650" cy="180" r="6.5" fill="#B43F30" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Purpose Section (Warm Editorial Light) -->
+  <section class="purpose-section surface-paper">
+    <div class="container container--narrow">
+      <span class="section-tag text-muted font-mono">Our Orientation</span>
+      <h2 class="section-heading font-serif">
+        Better solutions begin with understanding the problem.
+      </h2>
+      <p class="section-lead text-secondary">
+        A repetitive task, a confusing process, a disconnected system: meaningful improvements often begin with the ordinary things that get in the way. We study those moments and look for practical ways to make them better.
+      </p>
+      <div class="principles-grid">
+        <div class="principle-card">
+          <span class="principle-number font-mono">01</span>
+          <h3 class="principle-title">Understand First</h3>
+          <p class="principle-desc text-secondary">
+            Identify the actual source of friction before writing code or assembling tools.
+          </p>
+        </div>
+        <div class="principle-card">
+          <span class="principle-number font-mono">02</span>
+          <h3 class="principle-title">Proportionate Design</h3>
+          <p class="principle-desc text-secondary">
+            Build only what is necessary to resolve the friction cleanly, avoiding fragile complexity.
+          </p>
+        </div>
+        <div class="principle-card">
+          <span class="principle-number font-mono">03</span>
+          <h3 class="principle-title">Dependable Craft</h3>
+          <p class="principle-desc text-secondary">
+            Execute with precision, clear ownership, and verified reliability.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Capabilities Preview Section (Warm Editorial Light) -->
+  <section class="capabilities-preview surface-paper">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag text-muted font-mono">Approach &amp; Scope</span>
+        <h2 class="section-heading font-serif">
+          Different problems. Thoughtful approaches.
+        </h2>
+        <p class="section-intro text-secondary">
+          We evaluate the nature of an operational challenge before recommending or building an approach.
+        </p>
+      </div>
+
+      <div class="capabilities-grid">
+        <div class="capability-item">
+          <h3 class="capability-title">Purpose-Built Applications</h3>
+          <p class="capability-desc text-secondary">
+            Tailored software designed to address specific operational bottlenecks where generic tools fall short.
+          </p>
+        </div>
+        <div class="capability-item">
+          <h3 class="capability-title">Workflow Automation</h3>
+          <p class="capability-desc text-secondary">
+            Streamlining repetitive coordination, data movement, and handoffs between disparate tools.
+          </p>
+        </div>
+        <div class="capability-item">
+          <h3 class="capability-title">Internal Operating Systems</h3>
+          <p class="capability-desc text-secondary">
+            Lightweight, focused systems that clarify operational truth and reduce manual overhead.
+          </p>
+        </div>
+        <div class="capability-item">
+          <h3 class="capability-title">Specialized Tools &amp; Integrations</h3>
+          <p class="capability-desc text-secondary">
+            Bridging fragmented services and solving discrete technical hurdles with clean, dependable utilities.
+          </p>
+        </div>
+      </div>
+
+      <div class="section-footer">
+        <a href="/capabilities" class="btn btn-secondary-light">
+          View Detailed Capabilities &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Institutional Clarity Section (Dark Contrast) -->
+  <section class="identity-section surface-dark">
+    <div class="container container--narrow">
+      <span class="section-tag text-muted font-mono">Publisher &amp; Studio</span>
+      <h2 class="section-heading font-serif">
+        Independent by design.
+      </h2>
+      <p class="identity-text text-secondary">
+        Our work is selected deliberately. We value usefulness, clear thinking, careful design, and dependable execution over unnecessary organizational scale. We develop original products and evaluate selected commissioned solutions for organizations facing real problems.
+      </p>
+    </div>
+  </section>
+
+  <!-- Final CTA Section (Dark Finish) -->
+  <section class="cta-section surface-dark">
+    <div class="container container--narrow text-center">
+      <h2 class="cta-heading font-serif">
+        Have a problem worth exploring?
+      </h2>
+      <p class="cta-sub text-secondary">
+        Whether you have a discrete operational friction or an opportunity for a purpose-built system, we invite a conversation.
+      </p>
+      <div class="cta-action">
+        <a href="/contact" class="btn btn-primary">
+          Start a Conversation
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero Section */
+  .hero-section {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-20);
+    border-bottom: 1px solid var(--border-dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+  }
+
+  .hero-content {
+    max-width: 820px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .hero-eyebrow {
+    font-size: var(--font-size-xs);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-vermilion);
+  }
+
+  .hero-title {
+    font-size: var(--font-size-hero);
+    line-height: var(--line-height-tight);
+    font-weight: 400;
+    color: var(--text-dark-primary);
+    letter-spacing: -0.02em;
+  }
+
+  .hero-intro {
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-relaxed);
+    max-width: 680px;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: var(--space-2);
+  }
+
+  .hero-filament-wrapper {
+    width: 100%;
+    max-width: 900px;
+    margin-inline: auto;
+    opacity: 0.9;
+  }
+
+  .hero-filament-svg {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Purpose Section */
+  .purpose-section {
+    padding-block: var(--space-24);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .section-tag {
+    display: block;
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-4);
+  }
+
+  .section-heading {
+    font-size: var(--font-size-2xl);
+    line-height: var(--line-height-snug);
+    font-weight: 400;
+    margin-bottom: var(--space-6);
+  }
+
+  .section-lead {
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-12);
+  }
+
+  .principles-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .principle-card {
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border-light);
+  }
+
+  .principle-number {
+    font-size: var(--font-size-xs);
+    color: var(--color-vermilion);
+    display: block;
+    margin-bottom: var(--space-2);
+  }
+
+  .principle-title {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    margin-bottom: var(--space-2);
+  }
+
+  .principle-desc {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+  }
+
+  /* Capabilities Preview */
+  .capabilities-preview {
+    padding-block: var(--space-24);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .section-header {
+    max-width: 760px;
+    margin-bottom: var(--space-12);
+  }
+
+  .section-intro {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+  }
+
+  .capabilities-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    margin-bottom: var(--space-12);
+  }
+
+  .capability-item {
+    padding: var(--space-6);
+    border: 1px solid var(--border-light);
+    background-color: var(--color-paper-light);
+    border-radius: 2px;
+  }
+
+  .capability-title {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    margin-bottom: var(--space-2);
+  }
+
+  .capability-desc {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+  }
+
+  .section-footer {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  /* Identity Section */
+  .identity-section {
+    padding-block: var(--space-24);
+    border-bottom: 1px solid var(--border-dark);
+  }
+
+  .identity-text {
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-relaxed);
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding-block: var(--space-24);
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .cta-heading {
+    font-size: var(--font-size-3xl);
+    font-weight: 400;
+    margin-bottom: var(--space-4);
+  }
+
+  .cta-sub {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    max-width: 580px;
+    margin-inline: auto;
+    margin-bottom: var(--space-8);
+  }
+
+  .cta-action {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (min-width: 768px) {
+    .principles-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .capabilities-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

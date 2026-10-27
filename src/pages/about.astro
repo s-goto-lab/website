@@ -1,0 +1,231 @@
+---
+// src/pages/about.astro
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "About — S.goto Lab";
+const pageDescription = "Learn about S.goto Lab, an independent solutions studio and curated publisher focused on thoughtful software, systems, and practical craft.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} surfaceTheme="surface-paper">
+  <div class="about-page">
+    <!-- Header Hero -->
+    <header class="page-hero">
+      <div class="container container--narrow">
+        <span class="hero-tag font-mono text-muted">About the Studio</span>
+        <h1 class="hero-title font-serif">
+          An independent studio for purposeful work.
+        </h1>
+        <p class="hero-lead text-secondary">
+          S.goto Lab is an independent solutions studio and publisher. It identifies promising problems, creates original work, and may collaborate with people or organizations on selected solutions.
+        </p>
+      </div>
+    </header>
+
+    <!-- Studio Purpose & Narrative -->
+    <section class="narrative-section">
+      <div class="container container--narrow">
+        <h2 class="section-title font-serif">
+          Why we exist
+        </h2>
+        <div class="prose-content text-secondary">
+          <p>
+            Much of everyday software feels either unnecessarily bloated or disconnected from the reality of the people using it. Features accumulate without solving the core friction, and maintenance overhead compounds.
+          </p>
+          <p>
+            S.goto Lab was founded to work differently: with restraint, precision, and deep curiosity about how things actually operate. We focus on small-to-medium systems where careful engineering and clean design produce outsized improvements in daily productivity.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Operating Principles -->
+    <section class="principles-section">
+      <div class="container container--narrow">
+        <h2 class="section-title font-serif">
+          Core principles
+        </h2>
+
+        <div class="principles-stack">
+          <div class="principle-row">
+            <span class="principle-idx font-mono">01</span>
+            <div class="principle-detail">
+              <h3 class="principle-name">Understand before building</h3>
+              <p class="principle-text text-secondary">
+                We spend time analyzing the actual problem, the users involved, and existing operational constraints before proposing an architecture.
+              </p>
+            </div>
+          </div>
+
+          <div class="principle-row">
+            <span class="principle-idx font-mono">02</span>
+            <div class="principle-detail">
+              <h3 class="principle-name">Keep complexity purposeful</h3>
+              <p class="principle-text text-secondary">
+                We avoid adding unnecessary frameworks, third-party services, or architectural layers unless they provide clear, verifiable value to the solution.
+              </p>
+            </div>
+          </div>
+
+          <div class="principle-row">
+            <span class="principle-idx font-mono">03</span>
+            <div class="principle-detail">
+              <h3 class="principle-name">Design for real people</h3>
+              <p class="principle-text text-secondary">
+                Solutions must be intuitive, responsive, and respectful of the user's attention. Aesthetics and ergonomics serve clarity and ease of use.
+              </p>
+            </div>
+          </div>
+
+          <div class="principle-row">
+            <span class="principle-idx font-mono">04</span>
+            <div class="principle-detail">
+              <h3 class="principle-name">Verify what we claim</h3>
+              <p class="principle-text text-secondary">
+                Every tool and system we build is backed by automated tests, real-world inspection, and honest assessments of constraints and trade-offs.
+              </p>
+            </div>
+          </div>
+
+          <div class="principle-row">
+            <span class="principle-idx font-mono">05</span>
+            <div class="principle-detail">
+              <h3 class="principle-name">Maintain accountable ownership</h3>
+              <p class="principle-text text-secondary">
+                We stand behind our work. Code is written cleanly, thoroughly documented, and structured for long-term maintainability.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Institutional Accountability (Truthful Disclosures) -->
+    <section class="accountability-section">
+      <div class="container container--narrow">
+        <h2 class="section-title font-serif">
+          Institutional accountability
+        </h2>
+        <div class="accountability-card">
+          <p class="accountability-text text-secondary">
+            S.goto Lab operates as an independent, owner-led studio and curated publisher. We do not represent ourselves as an enterprise corporation or an undisclosed agency. We do not publish fabricated client testimonials, fictitious headcount figures, or speculative product claims.
+          </p>
+          <p class="accountability-text text-secondary">
+            When original products are ready for public release, they are published transparently under their own validated documentation. When commissioned work is undertaken, it is evaluated strictly on alignment, capability, and mutual respect for working quality.
+          </p>
+        </div>
+
+        <div class="about-action">
+          <a href="/contact" class="btn btn-primary">
+            Start a Conversation
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .about-page {
+    padding-bottom: var(--space-24);
+  }
+
+  .page-hero {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-16);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .hero-tag {
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: var(--space-4);
+  }
+
+  .hero-title {
+    font-size: var(--font-size-3xl);
+    line-height: var(--line-height-tight);
+    font-weight: 400;
+    margin-bottom: var(--space-6);
+  }
+
+  .hero-lead {
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .narrative-section,
+  .principles-section,
+  .accountability-section {
+    padding-block: var(--space-20);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .section-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 400;
+    margin-bottom: var(--space-6);
+  }
+
+  .prose-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .principles-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .principle-row {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-6);
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .principle-idx {
+    font-size: var(--font-size-sm);
+    color: var(--color-vermilion);
+    padding-top: var(--space-1);
+    min-width: 2rem;
+  }
+
+  .principle-name {
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    margin-bottom: var(--space-1);
+  }
+
+  .principle-text {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .accountability-card {
+    padding: var(--space-8);
+    background-color: var(--color-paper-light);
+    border: 1px solid var(--border-light);
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--space-10);
+  }
+
+  .accountability-text {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .about-action {
+    display: flex;
+    justify-content: flex-start;
+  }
+</style>

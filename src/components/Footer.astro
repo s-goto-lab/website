@@ -1,0 +1,146 @@
+---
+// src/components/Footer.astro
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer" id="site-footer">
+  <div class="container footer-container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-title">S.goto Lab</span>
+        <p class="footer-tagline">
+          Independent solutions studio and curated publisher. Exploring real-world friction to design purposeful systems.
+        </p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <div class="footer-nav-col">
+          <span class="footer-heading">Navigation</span>
+          <ul class="footer-links">
+            <li><a href="/" class="footer-link">Home</a></li>
+            <li><a href="/capabilities" class="footer-link">Capabilities</a></li>
+            <li><a href="/about" class="footer-link">About</a></li>
+            <li><a href="/contact" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <span class="footer-heading">Engagement</span>
+          <ul class="footer-links">
+            <li><a href="/contact" class="footer-link">Discuss a Problem</a></li>
+            <li><a href="/contact" class="footer-link">Commissioned Inquiries</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-legal">
+        &copy; {currentYear} S.goto Lab. All rights reserved. S.goto Lab operates as an independent studio and publisher; inquiries are evaluated individually without guarantee of project acceptance.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    width: 100%;
+    background-color: var(--color-ink);
+    border-top: 1px solid var(--border-dark);
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-12);
+    margin-top: auto;
+    color: var(--text-dark-secondary);
+  }
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+  }
+
+  .footer-top {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .footer-brand {
+    max-width: 440px;
+  }
+
+  .footer-title {
+    display: block;
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    color: var(--text-dark-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .footer-tagline {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+    color: var(--text-dark-muted);
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-10);
+  }
+
+  .footer-nav-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    min-width: 140px;
+  }
+
+  .footer-heading {
+    font-size: var(--font-size-xs);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dark-muted);
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .footer-link {
+    font-size: var(--font-size-sm);
+    color: var(--text-dark-secondary);
+    transition: color var(--transition-fast);
+  }
+
+  .footer-link:hover {
+    color: var(--color-vermilion);
+  }
+
+  .footer-bottom {
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--border-dark);
+  }
+
+  .footer-legal {
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-relaxed);
+    color: var(--text-dark-muted);
+    max-width: 720px;
+  }
+
+  @media (min-width: 768px) {
+    .footer-top {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .footer-nav {
+      gap: var(--space-16);
+    }
+  }
+</style>

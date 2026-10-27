@@ -1,0 +1,67 @@
+---
+// src/pages/404.astro
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "Page Not Located — S.goto Lab";
+const pageDescription = "The requested path does not exist in the published S.goto Lab architecture.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} noIndex={true}>
+  <section class="not-found-section surface-dark">
+    <div class="container container--narrow text-center">
+      <span class="error-code font-mono text-muted">Error 404</span>
+      <h1 class="error-title font-serif">
+        Page not located.
+      </h1>
+      <p class="error-desc text-secondary">
+        The requested path does not exist within the published S.goto Lab architecture. The link may have changed, or the referenced content is not part of this public release.
+      </p>
+      <div class="error-action">
+        <a href="/" class="btn btn-secondary-dark">
+          Return to Overview
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found-section {
+    padding-block: var(--space-32);
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .error-code {
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-vermilion);
+    display: block;
+    margin-bottom: var(--space-4);
+  }
+
+  .error-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 400;
+    margin-bottom: var(--space-6);
+  }
+
+  .error-desc {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    max-width: 520px;
+    margin-inline: auto;
+    margin-bottom: var(--space-8);
+  }
+
+  .error-action {
+    display: flex;
+    justify-content: center;
+  }
+</style>

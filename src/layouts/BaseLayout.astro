@@ -1,0 +1,68 @@
+---
+// src/layouts/BaseLayout.astro
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SkipLink from "../components/SkipLink.astro";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  surfaceTheme?: "surface-dark" | "surface-paper";
+  mainClass?: string;
+  noIndex?: boolean;
+}
+
+const {
+  title = "S.goto Lab — Independent Solutions Studio & Publisher",
+  description = "S.goto Lab explores everyday inefficiencies and operational friction, designing and developing purposeful applications, systems, and curated solutions.",
+  surfaceTheme = "surface-dark",
+  mainClass = "",
+  noIndex = false,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://lab.shagoto.me");
+const currentPath = Astro.url.pathname;
+const fullTitle = title.includes("S.goto Lab") ? title : `${title} | S.goto Lab`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+
+    <!-- Open Graph / Meta -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="S.goto Lab" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+  </head>
+  <body class={surfaceTheme}>
+    <SkipLink />
+    <Header currentPath={currentPath} />
+    <main id="main-content" class={`site-main ${mainClass}`}>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .site-main {
+    flex: 1 0 auto;
+    width: 100%;
+  }
+</style>
